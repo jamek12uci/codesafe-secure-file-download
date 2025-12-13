@@ -16,7 +16,3 @@ modules:
         name: Saving Files in the Environment
       - id: secure-file-download
       	name: Secure File Download Service
-
-  - id: hello
-  - id: world
-  - id: demo
