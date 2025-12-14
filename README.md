@@ -1,94 +1,55 @@
-# Example Dojo
+# Codesafe Secure File Download Challenge
 
-This repository features an example dojo.
+Proof-of-concept Codesafe challenge for INF 113 Homework 6
+Nathan Hillyer, Chisom Eze, James Kim
 
-The dojo is defined by [dojo.yml](./dojo.yml).
+The challenge is designed to teach **secure software engineering principles**
+through a realistic, scenario-based coding task. Learners are given an existing
+Python codebase with real functionality and must identify and remediate a
+**directory traversal vulnerability** without breaking existing behavior.
 
-It contains two modules, `hello` and `world`.
+---
 
-The module `hello` features challenges `apple` and `banana`.
+## 🔐 Challenge Overview: Secure File Download Service
 
-The module `world` features challenges `earth`, `mars`, and `venus`.
+**Concepts covered:**
+- Secure file handling
+- Directory traversal vulnerabilities (CWE-22)
+- Defensive programming
+- Preserving existing functionality while patching security flaws
 
-Each challenge demonstrates different challenge definition capabilities, in an increasing order of feature complexity.
+**Difficulty:** Beginner → Intermediate  
+**Estimated completion time:** 30–60 minutes  
+**Language:** Python
 
-See each challenge's README for further information:
-- [apple](./hello/apple)
-- [banana](./hello/banana)
-- [earth](./world/earth)
-- [mars](./world/mars)
-- [venus](./world/venus)
+---
 
-## YAML Structure of `dojo.yml`
+## 📁 Repository Structure
 
-### Dojo
+platform-tutorial/
+└── secure-file-download/
+├── DESCRIPTION.md # Scenario and challenge instructions
+├── modify_me.py # Starter source code (100+ LOC)
+├── checker # Automated tests and security checks
+├── .init # Environment initialization script
+└── backups/
+└── modify_me.py # Immutable backup of starter code
 
-The top-level object is the `Dojo`. It consists of six properties:
+---
 
-- `id`: **Required**. A unique identifier for the Dojo.
-- `name`: **Required**. The display name of the Dojo.
-- `description`: **Optional**. Additional details about the Dojo. This can include formatted markdown text.
-- `type`: **Optional**. This field can take the values `course`, `topic`, or `hidden`. `course` places it in the "Courses" section. `topic` places the Dojo in the "Topics" section. `hidden` means the Dojo won't be listed (but is still accessible). If the type field is omitted or contains a value other than these three, the Dojo will appear in the "More" section.
-- `password`: **Optional**. A password that users need to join the Dojo. If omitted, the Dojo is open for anyone to join.
-- `modules`: **Required**. An array of `Module` objects.
+## 🎯 Educational Goals
 
-### Module
+This challenge aligns with the **Codesafe Product Vision, Goals, and Scope** by:
 
-Each `Module` object within the `modules` array consists of the following properties:
+- Providing hands-on practice with real-world software vulnerabilities
+- Reinforcing secure coding practices in an authentic engineering context
+- Allowing learners to experiment safely in a sandboxed environment
+- Supporting incremental skill development in software security
 
-- `id`: **Required**. A unique identifier for the Module.
-- `name`: **Required**. The display name of the Module.
-- `description`: **Optional**. Additional details about the Module.
-- `challenges`: **Required**. An array of `Challenge` objects.
+---
 
-### Challenge
+## 🚀 Deployment
 
-Each `Challenge` object within the `challenges` array of a `Module` consists of the following properties:
-
-- `id`: **Required**. A unique identifier for the Challenge.
-- `name`: **Required**. The display name of the Challenge.
-- `description`: **Optional**. Additional details about the Challenge.
-
-## Importing Modules and Challenges
-
-For an example of how you can import another dojo's challenges, see: [pwncollege/example-import-dojo](https://github.com/pwncollege/example-import-dojo).
-
-## Automatically Updating Dojo
-
-For instructions on how you can setup automatic dojo updates, using GitHub actions, see: [pwncollege/dojo-update](https://github.com/pwncollege/dojo-update).
-
-## Challenge Writing Laws
-
-### The Flag
-
-The flag is located at `/flag`, and is only readable by `root`. 
-The challenge will execute as `root`.
-Nothing else is true.
-
-Do not assume any structure to the flag. 
-It may or may not have a prefix/suffix. 
-It may or may not be 50 bytes long.
-These things WILL change, and if you rely on them, your challenge WILL break.
-
-### The Challenge
-
-The challenge is [`setuid`](https://en.wikipedia.org/wiki/Setuid).
-This is how your challenge will execute as `root`.
-
-What this *really* means:
-- The process will run with an **effective** user of `root`.
-- The process will run with a **real** user of `hacker`.
-
-While an **effective** user of `root` is sufficient for opening the flag, there are some caveats.
-When `/bin/sh` (which is linked to `/bin/dash`) is run under this, it will immediately set the **effective** user to the **real** user (unless the `-p` flag is provided).
-This means that both the **effective** and **real** user will be `hacker`, and the flag will not be accessible.
-This affects `system`, which ultimately just runs `/bin/sh`.
-
-The challenge can remedy this by explicitly setting the **real** user to the **effective** user:
-```c
-setreuid(geteuid(), -1)
-```
-
-
-
+This challenge is compatible with the Codesafe / DOJO infrastructure and can be
+deployed by importing this repository as a dojo within the Codesafe platform.
 
