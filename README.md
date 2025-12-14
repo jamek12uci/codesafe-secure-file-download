@@ -25,7 +25,7 @@ Python codebase with real functionality and must identify and remediate a
 ---
 
 ## 📁 Repository Structure
-
+```
 platform-tutorial/
 └── secure-file-download/
 ├── DESCRIPTION.md # Scenario and challenge instructions
@@ -34,7 +34,7 @@ platform-tutorial/
 ├── .init # Environment initialization script
 └── backups/
 └── modify_me.py # Immutable backup of starter code
-
+```
 ---
 
 ## 🎯 Educational Goals
