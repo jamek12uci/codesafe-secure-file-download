@@ -1,6 +1,7 @@
 # Codesafe Secure File Download Challenge
 
 Proof-of-concept Codesafe challenge for INF 113 Homework 6
+
 Nathan Hillyer, Chisom Eze, James Kim
 
 The challenge is designed to teach **secure software engineering principles**
